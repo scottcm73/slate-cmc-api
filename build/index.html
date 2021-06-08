@@ -1,0 +1,1888 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a9fde460.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+        <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#acquiring-api-key" class="toc-h2 toc-link" data-title="Acquiring an API Key">Acquiring an API Key</a>
+                  </li>
+                  <li>
+                    <a href="#using-your-api-key" class="toc-h2 toc-link" data-title="Using Your API Key">Using Your API Key</a>
+                  </li>
+                  <li>
+                    <a href="#api-key-usage-credits" class="toc-h2 toc-link" data-title="API Key Usage Credits">API Key Usage Credits</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#endpoint-overview" class="toc-h1 toc-link" data-title="Endpoint Overview">Endpoint Overview</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#top-level-categories" class="toc-h2 toc-link" data-title="Top Level Categories">Top Level Categories.</a>
+                  </li>
+                  <li>
+                    <a href="#paths-reflect-data-type" class="toc-h2 toc-link" data-title="Paths Reflect Data Type">Endpoint Paths Reflect  Data Type</a>
+                  </li>
+                  <li>
+                    <a href="#cryptocurrency-and-exchange-endpoints" class="toc-h2 toc-link" data-title="Cryptocurrency and Exchange Endpoints">Cryptocurrency and Exchange Endpoints</a>
+                  </li>
+              </ul>
+          </li>
+
+          <li>
+            <a href="#standards-and-conventions" class="toc-h1 toc-link" data-title="Standars and Conventions">Standards and Conventions</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors and Rate Limits</a>
+          </li>
+          <li>
+            <a href="#best-practices" class="toc-h1 toc-link" data-title="Best Practices">Best Practices</a>
+              <ul class="toc-list-h2">
+                <li>
+                  <a href="#use-id-instead-of-symbol" class="toc-h2 toc-link" data-title="Use ID Instead of Symbol">Use ID Instead of Symbol</a>
+                </li>
+                <li>
+                  <a href="#use-the-right-endpoints" class="toc-h2 toc-link" data-title="Use the Right Endpoints">Use the Right Endpoints</a>
+                </li>
+                <li>
+                  <a href="#implement-caching-strategy-if-necessary" class="toc-h2 toc-link" data-title="Implement Caching Strategy if Necessary">Implement Caching Strategy if Necessary</a>
+                </li>
+                <li>
+                  <a href="#code-defensively-for-robust-rest-api-integration" class="toc-h2 toc-link" data-title="Code Defensively for Robust REST API Integration">Code Defensively for Robust REST API Integration</a>
+                </li>
+                <li>
+                  <a href="#reach-out-and-upgrade-plan" class="toc-h2 toc-link" data-title="Reach Out and Upgrade Plan">Reach Out and Upgrade Plan</a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cryptocurrency" class="toc-h1 toc-link" data-title="Cryptocurrency">Cryptocurrency</a>
+              <ul class="toc-list-h2">
+                <li>
+                  <a href="#metadata" class="toc-h2 toc-link" data-title="Metadata">Metadata</a>
+                </li>
+                <li>
+                  <a href="#coinmarketcap-id-map" class="toc-h2 toc-link" data-title="CoinmarketCap ID Map">CoinmarketCap ID Map</a>
+                </li>
+                <li>
+                  <a href="#listings-historical" class="toc-h2 toc-link" data-title="Listings Historical">Listings Historical</a>
+                </li>
+                <li>
+                  <a href="#listings-latest" class="toc-h2 toc-link" data-title="Listings Latest">Listings Latest</a>
+                </li>
+                <li>
+                  <a href="#market-pairs-latest" class="toc-h2 toc-link" data-title="Market Pairs Latest">Market Pairs Latest</a>
+                </li>
+                <li>
+                  <a href="#ohlcv-historical" class="toc-h2 toc-link" data-title="OHLCV Historical">OHLCV Historical</a>
+                </li>
+                <li>
+                  <a href="#ohlcv-latest" class="toc-h2 toc-link" data-title="OHLCV Latest">OHLCV Latest</a>
+                </li>
+                <li>
+                  <a href="#quotes-h" class="toc-h2 toc-link" data-title="Quotes Historical">Quotes Historical</a>
+                </li>
+                <li>
+                  <a href="#quotes-l" class="toc-h2 toc-link" data-title="Quotes Latest">Quotes Latest</a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#fiat" class="toc-h1 toc-link" data-title="Fiat">Fiat</a>
+          </li>
+          <li>
+            <a href="#exchange" class="toc-h1 toc-link" data-title="Exchange">Exchange</a>
+          </li>
+          <li>
+            <a href="#global-metrics" class="toc-h1 toc-link" data-title="Global Metrics">Global Metrics</a>
+              <ul class="toc-list-h2">
+                <li>
+                  <a href="#quotes-historical" class="toc-h2 toc-link" data-title="Quotes Historical">Quotes Historical</a>
+                </li>
+                <li>
+                  <a href="#quotes-latest" class="toc-h2 toc-link" data-title="Quotes Latest">Quotes Latest</a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tools" class="toc-h1 toc-link" data-title="Tools">Tools</a>
+              <ul class="toc-list-h2">
+                <li>
+                  <a href="#price-conversion" class="toc-h2 toc-link" data-title="Price Conversion">Price Conversion</a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#blockchain" class="toc-h1 toc-link" data-title="Blockchain">Blockchain</a>
+              <ul class="toc-list-h2">
+                <li>
+                  <a href="#statistics-latest" class="toc-h2 toc-link" data-title="Statistics Latest">Statistics Latest</a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#partners" class="toc-h1 toc-link" data-title="Partners">Partners</a>
+              <ul class="toc-list-h2">
+                <li>
+                  <a href="fcas-listings-latest" class="toc-h2 toc-link" data-title="FCAS Listings Latest">FCAS Listings Latest</a>
+                </li>
+                <li>
+                  <a href="fcas-quotes-latest" class="toc-h2 toc-link" data-title="FCAS Quotes Latest">FCAS Quotes Latest</a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#key" class="toc-h1 toc-link" data-title="Key">Key</a>
+              <ul class="toc-list-h2">
+                <li>
+                  <a href="#key-info" class="toc-h2 toc-link" data-title="Key Info">Key Info</a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#version-history" class="toc-h1 toc-link" data-title="Version History">Version History</a>
+          </li>
+        </ul>    
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+      <h1 id='introduction'>Introduction</h1>
+      <p>The CoinMarketCap API is a series of RESTful JSON endpoints created to meet the demands of data scientists, application developers, and enterprise platforms. The endpoints include parameters added at the end of specific URLs.</p>
+
+      <p>This API reference covers all technical documentation necessary to work with third-party platforms and applications. In addition, one of the documentation sections, API FAQs, also offers answers to common questions.</p>
+
+      <p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>.</p>
+
+
+      <h1 id="quick-start-guide">Quick Start Guide</h1>
+      <p>For application developers ready to start using the CoinMarketCap API, here are a few steps to make your first API call.
+      </p>
+      <ol>
+        <li>Sign up for a free account at pro.coinmarketcap.com. This is Coinmarketcap's live production environment with the latest market data. Choose the free Basic plan if it meets your requirements or upgrade to a paid plan.    
+        </li>
+        <li>Copy your API Key. After you sign up, you'll see your Developer Portal account dashboard. Copy your API Key from the API Key box in the top left. With your key, make a test call. You may use the code examples below to make a test call with your chosen programming language. This example retrieves several active cryptocurrencies by market cap. It returns market values in US dollars.
+        </li>
+        <li>Replace the API Key with your own or use the test API Key b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c for sandbox-api.coinmarketcap.com testing. If you use your own API key, use the API domain pro-api.coinmarketcap.com.
+        </li>
+        <li>After you've confirmed that your API key is working, read the rest of this API Reference and begin making your application!
+        </li>
+      </ol>
+      <h1 id='authentication'>Authentication</h1>
+      <h2 id="acquiring-api-key">Acquiring Your API Key</h2>
+        <p>API Key validation is required for all HTTP requests. Register at the API Developer Portal to get an API Key if you don't have one yet.
+        </p>
+      <h2 id="using-your-api-key">Using Your API Key</h2>
+      <p>Any server-side programming language can make HTTP requests to target the CoinMarketCap API. Requests should target the domain https://pro-api.coinmarketcap.com.You can provide your API Key in REST API calls with a custom header named X-CMC_PRO_API_KEY.
+      </p>
+      <p>
+        <aside class="warning"><strong>Warning: </strong>API keys should not be visible to users and should not be stored in GitHub respositories! One way of solving this is setting environment variables on the server-side. Environment variables can be set from the command line.
+        </aside>
+      </p>
+      <p><code>export API_KEY="your_api_key"</code>
+      </p>
+        <aside class="notice"><strong>Notice: </strong>You must replace <code>your_api_key</code> with your personal API key.
+        </aside>
+      <p>Use your server-side language of choice to get your api key from the environment variable API_KEY. 
+      </p>
+      <p>For example in Python:
+      </p>
+      <p>
+        <code>coinmarketcap_api_key=os.environ.get("API_KEY")
+        </code>
+      </p>
+      <p>Then, in the custom header set X-CMC_PRO_API_KEY equal to the local variable coinmarketcap_api_key.
+      </p>
+    <p>
+      <code>headers = {
+      </code>
+    </p>
+    <p>
+      <code>'Accepts': 'application/json',   
+      </code>
+    </p>
+    <p>
+      <code>'X-CMC_PRO_API_KEY': coinmarketcap_api_key,   
+      </code>
+    </p>
+    <p>
+      <code>}   
+      </code>
+    </p>
+    <h2 id="api-key-usage-credits">API Key Usage Credits</h2>
+      <p>Most API plans include a daily and monthly limit or "hard cap" to the number of data calls that can be made. Usage is tracked as API "call credits", which are incremented 1:1 against successful (HTTP Status 200) data calls made with your key with these exceptions: 
+      </p>
+        <ul>
+          <li>Error responses, usage stats endpoints, and account management endpoints are not included in this limit.
+          </li>
+          <li>Paginated endpoints: List-based endpoints track an additional call credit for every 100 data points returned (rounded up) beyond the 100 data point defaults. 
+          </li>
+          <li>Coinmarketcap's lightweight /map endpoints are not part of this limit and always count as 1 credit. For more details, see documentation for individual endpoints.
+          </li>
+          <li>Bundled API calls: Numerous endpoints support resource and currency conversion bundling. Bundled resources are also tracked as 1 call credit for every 100 resources returned (rounded up). So, for example, 101 resources returned would round up to 2 calls. Optional currency conversion bundling with the convert parameter also increments an additional API call credit for each conversion requested beyond the first.
+          </li>
+        </ul>
+    <p>
+      <aside class="notice"><strong>Note: </strong>The start of your monthly subscription day and time defines the credit usage periods for your API subscription. For example, if your monthly subscription began on the 5th at 5:30 am, each month on the 5th at 5:30am you are billed for the month and your usage limits for the month are reset. However, usage limits for the the free Basic tier reset each day at UTC midnight and each calendar month at UTC midnight.
+      </aside>
+    </p>
+    <h1 id="endpoint-overview">Endpoint Overiew</h1>
+  <h2 id="top-level-categories">Top Level Categories</h2>
+  <table>
+    <thead>
+      <td>
+        <strong>Endpoint Category
+        </strong>
+      </td>
+       
+
+      <td>
+         <strong>Description
+        </strong>
+      </td>
+    </thead>
+    <tr>
+      <td>/cryptocurrency/*
+      </td>
+      <td>Endpoints that return data around cryptocurrencies such as ordered cryptocurrency lists or price and volume data.
+      </td>
+    </tr>
+    <tr>
+      <td>/exchange/*
+      </td>
+      <td>Endpoints that return data about cryptocurrency exchanges such as market pair data and ordered exchange lists.
+      </td>
+    </tr>
+    <tr>
+      <td>/global-metrics/*
+      </td>
+      <td>Endpoints that return aggregate market data such as global market cap and BTC dominance.
+      </td>
+    </tr>
+    <tr>
+      <td>/tools/*
+      </td>
+      <td>Useful utilities including fiat and cryptocurrency price conversions.
+      </td>
+    </tr>
+    <tr>
+      <td>/blockchain/*
+      </td>
+      <td>Endpoints that deliver block explorer-related data for blockchains.
+      </td>
+    </tr>
+    <tr>
+      <td>/fiat/*
+      </td>
+      <td>Endpoints that return data about fiat currencies including mapping to CMC IDs.
+      </td>
+    </tr>
+     <tr>
+      <td>/keys/*
+      </td>
+      <td>API Key administration endpoints for reviewing and managing your usage.
+      </td>
+    </tr>
+    <tr>
+      <td>/partners/*
+      </td>
+      <td>Endpoints for access to third party crypto data.
+      </td>
+    </tr>
+  </table>
+
+<h2 id="paths-reflect-data-type">Endpoint Paths Reflect Data Type</h2>
+   <table>
+    <thead>
+      <td>
+        <strong>Endpoint Path
+        </strong>
+      </td>
+      <td>
+        <strong>Endpoint Type
+        </strong>
+      </td>
+
+      <td>
+         <strong>Description
+        </strong>
+      </td>
+    </thead>
+    <tr>
+      <td>*/latest
+      </td>
+      <td>Latest Market Data
+      </td>
+      <td>Latest market averages and ticker quotes for cryptocurrencies and exchanges.
+      </td> 
+    </tr>
+    <tr>
+      <td>*/historical
+      </td>
+      <td>Historical Market Data
+      </td>
+      <td>Intervals of historic market data including OHLCV data or data for use in charting libraries.
+      </td> 
+    </tr>
+    <tr>
+      <td>*/info
+      </td>
+      <td>Metadata
+      </td>
+      <td>Cryptocurrency and exchange metadata such as block explorer logos and URLs.
+      </td> 
+    </tr>
+    <tr>
+      <td>*/map
+      </td>
+      <td>ID Maps
+      </td>
+      <td>Utility endpoints to retrieve a map of resources for CoinMarketCap IDs.
+      </td> 
+    </tr>
+  </table>
+
+  <h2 id="cryptocurrency-and-exchange-endpoints">Cryptocurrency and Exchange Endpoints</h2>
+    <ul>
+      <li><strong>Listing endpoints: </strong>  Paginated */listings/* endpoints allow sorting and filtering lists of data such as exchanges by volume or cryptocurrencies by market cap.
+      </li>
+      <li><strong>Item endpoints: </strong>ID-based resource endpoints including */quotes/* and */market-pairs/* allow bundling of multiple IDs; for example, this bundling lets you retrieve the latest market quotes for several cryptocurrencies in one call.
+      </li>
+    </ul>
+  <h1 id="standards-and-conventions">Standards and Conventions</h1>
+    <p>Every HTTP request must contain the header Accept: application/json. Also, you should send an Accept-Encoding: deflate, gzip header to get data fast and efficiently.  
+    </p>
+  <h1 id="errors">Errors and Rate Limits</h1>
+    <p>The CoinmarketCap API uses the following error codes:</p>
+
+  <table>
+
+    <tr>
+      <th>HTTP Status</th>
+      <th>Error Code</th>
+    </tr>
+
+    <tr>
+      <td>400</td>
+      <td>Bad Request -- Your request is invalid.</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>1001 --[API_KEY_INVALID]</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>1002 -- [API_KEY_MISSING]</td>
+    </tr>
+    <tr>
+      <td>402</td>
+      <td>1003 -- [API_KEY_PLAN_REQUIRES_PAYMENT]</td>
+    </tr>
+    <tr>
+      <td>402</td>
+      <td>1004 -- [API_KEY_PLAN_PAYMENT_EXPIRED]</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>1005 -- [API_KEY_REQUIRED]</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>1006 -- [API_KEY_PLAN_NOT_AUTHORIZED]</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>1007 -- [API_KEY_DISABLED]</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>1008 -- [API_KEY_PLAN_MINUTE_RATE_LIMIT_REACHED]</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>1009 -- [API_KEY_PLAN_DAILY_RATE_LIMIT_REACHED]</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>1010 -- [API_KEY_PLAN_MONTHLY_RATE_LIMIT_REACHED]</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>1011 -- [IP_RATE_LIMIT_REACHED]</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+    </tr>
+  </table>
+
+  <h1 id="best-practices">Best Practices</h1>
+    <p>This section contains several recommendations about efficiently utilizing the CoinMarketCap API for an enterprise application. These recommendations are especially beneficial if your application already has a large base of users. 
+    </p>
+  <h2 id="use-id-instead-of-symbol">Use ID Instead of Symbol</h2>
+    <p>While utilizing common cryptocurrency symbols on the API is easy, it is brittle. Many cryptocurrencies have the same symbol. For example, three cryptocurrencies commonly refer to themselves with the symbol HOT. Additionally, cryptocurrency symbols frequently change with cryptocurrency rebrands.</p>
+    <p>When fetching cryptocurrency data from a symbol matching several active cryptocurrencies, the API returns the one with the highest market cap. For this reason, whenever possible, use the permanent CoinMarketCap IDs. These IDs never change.
+    </p>
+    <p>
+    Previously a call to the /cryptocurrency/map endpoint would give a full list   of all active currencies mapped to the unique id property. However,  this map endpoint does not return all the cryptocurrency symbols and ids. 
+    </p>
+      <aside class="notice"><strong>Notice: </strong> Any production code should utilize these IDs for cryptocurrencies, exchanges, and markets to future-proof your code.
+      </aside>
+  <h2 id="use-the-right-endpoints">Use the Right Endpoints</h2>
+    <p>The endpoint /cryptocurrency/listings/latest requests paginated and ordered lists of all cryptocurrencies. However, the endpoint, /cryptocurrency/quotes/latest selectively requesting only the specific cryptocurrencies you require. Many endpoints follow this pattern.  
+    </p>
+  <h2 id="implement-caching-strategy-if-necessary">Implement Caching Strategy if Necessary</h2>
+    <p>Standard legal data safeguards are built into the Commercial User Terms that application developers should be aware of. These Terms help prevent unauthorized redistribution and scraping of CMC data. They are worded to allow legitimate local caching of market data for your application.</p>
+    <p>If your application has a large user base and you are concerned with the API throttling and call credit limits of your subscription plan, consider implementing a data caching strategy. For example, instead of making a /cryptocurrency/quotes/latest call each time a user of your application needs to fetch market rates for specific cryptocurrencies, you could pre-fetch and cache the most recent market data for every cryptocurrency in your application's local database every 60 seconds. This would require just 1 API call, /cryptocurrency/listings/latest?limit=5000, every 60 seconds. Then, anytime a user of your application needs to load a custom list of cryptocurrencies you could pull this latest market data from your local cache without the burden of additional calls. This method of optimization is practical for API customers with large, demanding user bases.
+    </p>
+  <h2 id="code-defensively-for-robust-rest-api-integration">Code Defensively for Robust REST API Integration</h2>
+    <p>Code defensively whenever implementing any high availability REST API service for mission-critical operations. Since the API is versioned, any response format change or breaking request would only be introduced via new versions of each endpoint. However, existing endpoints may still introduce new properties over time.
+    </p>
+    <p>Recommended Best practices:
+    </p>
+      <ul>
+        <li>Parse the API response JSON as JSON and not through a regular expression or other means to avoid brittle parsing logic.  
+        </li>
+        <li>Parsing code should explicitly parse only the response properties required to guarantee new fields that may be returned in the future are ignored.
+        </li>
+        <li>Add robust field validation to your response parsing logic.  Wrapping complex field parsing, like dates, in try/catch statements can minimize the impact of unexpected parsing issues (such as the unlikely return of a null value).
+        </li>
+        <li> Implement a "Retry with exponential backoff" coding pattern for your REST API call logic. So, if your HTTP request gets rate-limited (HTTP 429) or encounters an unexpected server-side condition (HTTP 5xx) your code would automatically recover and try again with a recovery scheme.
+        </li>
+        <li>You can use one of the many libraries available; including,  one for Node and another for Python.
+        </li>
+
+      </ul>
+  <h2 id="reach-out-and-upgrade-plan">Reach Out and Upgrade Plan</h2>
+    <p>Reach out to api@coinmarketcap.com if you're uncertain about the best implementation of the CoinMarketCap API in your application or your needs outgrow the current self-serve subscription tiers. CoinmarketCap will review your needs and budget and may be able to tailor a custom enterprise plan that is right for you.
+    </p>
+  <h1 id="cryptocurrency">Cryptocurrency</h1>
+    <p>Cryptocurrencies may be identified in endpoints using either the cryptocurrency's unique CoinMarketCap ID as id (eg. id=1 for Bitcoin) or the cryptocurrency's symbol (eg. symbol=BTC for Bitcoin). For a current list of supported cryptocurrencies use the /cryptocurrency/map call.
+    </p>
+    <h2 id="metadata">Metadata</h2>
+  <p>The metadata endpoint returns all static metadata for one or more exchanges. This information includes details including logo, launch date, social links, official website URL, and market fee documentation URL.
+  </p>
+  <p>This metadata endpoint is available on the following API plans:
+  </p>
+
+  <p>
+    <ul>
+      <li>Startup
+      </li>
+      <li>Standard
+      </li>
+      <li>Professional
+      </li>
+      <li>Enterprise
+      </li>
+    </ul>
+  </p>
+  <p>However, the exchange metadata endpoint is not available on the plans:
+  </p>
+  <p>
+    <ul>
+      <li>Basic
+      </li>
+      <li>Hobbyest
+      </li>
+    </ul>
+  </p>
+  <p>Cache / Update frequency: Static data is updated as needed, every 30 seconds.
+  </p>
+  <p>Plan credit usage: 1 call credit per 100 exchanges returned (rounded up).
+  </p>
+  <p>CMC equivalent pages: Exchange detail page metadata such as coinmarketcap.com/exchanges/binance/.  
+  </p>
+  <h2 id="coinmarketcap-id-map">CoinmarketCap ID Map</h2>
+  <p>
+  The CoinmarketCap ID Map returns a mapping of all cryptocurrencies to unique CoinMarketCap ids. According to Best Practices, you should utilize CMC ID instead of cryptocurrency symbols. Use the CMC ID when calling the API with other endpoints and within your application. Each returned cryptocurrency maps to id returning other identifiers including name, symbol, and token_address. By default, cryptocurrencies with actively tracked markets on supported exchanges are returned. Passing listing_status=inactive returns a map of all inactive cryptocurrencies. Also, passing listing_status=untracked returns a map of registered cryptocurrency projects that are listed but do not yet meet methodology requirements to have tracked markets. Please review our methodology documentation for further details on listing states.
+  </p>
+  <p>
+  Cryptocurrencies returned include first_historical_data and last_historical_data timestamps to reference historical date ranges available to query with historical time-series data endpoints. You may also use the aux parameter to only include properties you require if calling this endpoint frequently.
+  </p>
+
+  <p>This endpoint is available on the following API plans:
+  </p>
+  <p>
+    <ul>
+      <li>Basic
+      </li>
+      <li>Hobbyist
+      </li>
+      <li>Startup
+      </li>
+      <li>Standard
+      </li>
+      <li>Professional
+      </li>
+      <li>Enterprise
+      </li>
+    </ul>
+  </p>
+  <p>Cache / Update frequency: Mapping data is updated as needed, every 30 seconds.</p>
+  <p>Plan credit use: 1 API call credit per request no matter query size.</p>
+  <p>CMC equivalent pages: No equivalent is available; this data is only available via API.</p>
+  <h2 id="listings-historical">Listings Historical</h2>
+  <p>The Cryptocurrency Listings Historical endpoint returns a ranked and sorted list of all cryptocurrencies for a historical UTC date.
+  </p>
+  <h3>Technical Notes
+  </h3>
+  <p>
+    <ul>
+      <li>This endpoint has an identical format to the /cryptocurrency/listings/latest endpoint, but it retrieves historical daily ranking snapshots from the end of each UTC day.
+      </li>
+      <li>Daily snapshots reflect market data at the end of each UTC day and can be requested as far back as 2013-04-28 (as supported by your plan's historical limits).
+      </li>
+      <li>The "date" parameter can be passed as a Unix timestamp or an ISO 8601 date, but just the date of the timestamp will be referenced. Time should not be included with the ISO date format. 
+      </li>
+      <li>The Cryptocurrency Listings Historical endpoint retrieves paginated and sorted lists of all cryptocurrencies. If you require historical market data on specific cryptocurrencies, you should use /cryptocurrency/quotes/historical.
+      </li>
+    </ul>
+  </p>
+  <p>By default, Cryptocurrencies are listed by cmc_rank. You may optionally sort based upon any of the following:
+  </p>
+  <p><strong>cmc_rank: </strong>CoinMarketCap's market cap rank as outlined in the methodology.
+  </p>
+  <p><strong>name: </strong>The cryptocurrency name.
+  </p>
+  <p><strong>symbol: </strong>The cryptocurrency symbol.
+  </p>
+  <p><strong>date_added: </strong>Date the cryptocurrency was added to the system.
+  </p>
+  <p><strong>market_cap: </strong>market cap which equals the latest trade price times the circulating supply.
+  </p>
+  <p><strong>price: </strong>latest average trade price across markets.
+  </p>
+  <p><strong>circulating_supply: </strong>approximate number of coins in circulation.
+  </p>
+  <p><strong>total_supply: </strong>the approximate total amount of coins in existence right now (minus any coins that have been verifiably burned).
+  </p>
+  <p><strong>max_supply: </strong>the best estimate of the maximum amount of coins that will ever exist in the currency's lifetime.
+  </p>
+  <p><strong>num_market_pairs: </strong>number of market pairs across all exchanges that trade each currency.
+  </p>
+  <p><strong>volume_24h: </strong>24-hour trading volume for each currency.
+  </p>
+  <p><strong>percent_change_1h: </strong>each currency's 1-hour trading price percentage change.
+  </p>
+  <p><strong>percent_change_24h: </strong>24-hour trading price percentage change for each currency.
+  </p>
+  <p><strong>percent_change_7d: </strong>each currency's 7-day trading price percentage change.
+  </p>
+  <p><strong>This endpoint is available in the following</strong> API plans:
+  </p>
+  <p>
+    <ul>
+      <li>Standard (3 months)
+      </li>
+      <li>Professional (12 months)
+      </li>
+      <li>Enterprise (Up to 6 years)
+      </li>
+    </ul>
+  </p>
+  <p>However, the following plans do not feature the Cryptocurrency Listings Historical endpoints:
+  </p>
+  <p>
+    <ul>
+      <li>Basic
+      </li>
+      <li>Hobbyist
+      </li>
+      <li>Startup
+      </li>
+    </ul>
+  </p>
+  <p><strong>Cache / Update frequency: </strong>On the next UTC day, 30 minutes after midnight, historical data for the last completed UTC day is available.
+  </p>
+  <p><strong>Plan credit use: </strong>1 call credit per 100 cryptocurrencies returned (rounded up) and 1 call credit per convert option beyond the first.
+  </p>
+  <p><strong>CMC equivalent pages: </strong>historical daily crypto ranking snapshot pages such as this one on February 02, 2014.
+  </p>
+  <h2 id="listings-latest">Listings Latest</h2>
+  <p>The Listings Latest endpoint returns the latest market data of all active cryptocurrencies in a paginated list. By default, the listings are sorted by "market_cap" in the order of CoinMarketCap's market cap rank (as outlined in the methodology). However,  this call can be configured to sort  the result by another market ranking field. Use the "convert" option to return market values in multiple cryptocurrency and fiat conversions in the same call.
+  </p>
+  <p>Cryptocurrency Listings Latest allows sorting against any of the following:
+  </p>
+  <p><strong>market_cap: </strong>CoinMarketCap's market cap rank as outlined in the methodology.
+  </p>
+  <p><strong></strong>market_cap_strict: A strict market cap sort (latest trade price x circulating supply).
+  </p>
+   <p><strong>name: </strong>The cryptocurrency name.
+  </p>
+  <p><strong>symbol: </strong>The cryptocurrency symbol.
+  </p>
+  <p><strong>date_added: </strong>Date the cryptocurrency was added to the system.
+  </p>
+  <p><strong>market_cap: </strong>market cap which equals the latest trade price times the circulating supply.
+  </p>
+  <p><strong>price: </strong>latest average trade price across markets.
+  </p>
+  <p><strong>circulating_supply: </strong>approximate number of coins in circulation.
+  </p>
+  <p><strong>total_supply: </strong>the approximate total amount of coins in existence right now (minus any coins that have been verifiably burned).
+  </p>
+  <p><strong>max_supply: </strong>the best estimate of the maximum amount of coins that will ever exist in the currency's lifetime.
+  </p>
+  <p><strong>num_market_pairs: </strong>number of market pairs across all exchanges that trade each currency.
+  </p>
+  <p><strong></strong>market_cap_by_total_supply_strict: market cap by total supply.
+  </p>
+  <p><strong>volume_24h: </strong>24-hour trading volume for each currency.
+  </p>
+  <p><strong>percent_change_1h: </strong>each currency's 1-hour trading price percentage change.
+  </p>
+  <p><strong>percent_change_24h: </strong>24-hour trading price percentage change for each currency.
+  </p>
+  <p><strong>percent_change_7d: </strong>each currency's 7-day trading price percentage change.
+  </p>
+  <p><strong>This endpoint is available on the following</strong> API plans:
+    <ul>
+      <li>Basic 
+      </li>
+      <li>Hobbyist
+      </li>
+      <li>Startup
+      </li>
+      <li>Standard
+      </li>
+      <li>Professional
+      </li>
+      <li>Enterprise
+      </li>
+    </ul>
+  </p>
+  <h2 id="market-pairs-latest">Market Pairs Latest</h2>
+  <h2 id="ohlcv-historical">OHLCV Historical</h2>
+  <h2 id="ohlcv-latest">OHLCV Latest</h2>
+  <h2 id="price-performance-stats">Price Performance Stats</h2>
+  <h2 id="quotes-h">Quotes Historical</h2>
+  <h2 id="quotes-l">Quotes Latest</h2>
+  <h1 id="global-metrics">Global Metrics</h1>
+  <h2 id="quotes-historical">Quotes Historical</h2>
+  <h2 id="quotes-latest">Quotes Latest</h2>
+
+  <h1 id="fiat">Fiat</h1>
+    <p>All fiat currency options use the standard ISO 8601 currency code (eg. USD for the US Dollar). For a current list of supported fiat currencies use our /fiat/map endpoint. Unless otherwise stated, endpoints with fiat currency options like our convert parameter support these 93 major currency codes:
+    </p>
+  <table border=0 cellpadding=0 cellspacing=0 width=586 style='border-collapse:
+   collapse;table-layout:fixed;width:439pt'>
+   <col width=325 style='mso-width-source:userset;mso-width-alt:10410;width:244pt'>
+   <col width=87 span=3 style='width:65pt'>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 class=xl63 width=325 style='height:16.0pt;width:244pt'>Currency</td>
+    <td class=xl63 width=87 style='width:65pt'>Currency Cod<span
+    style='display:none'>e</span></td>
+    <td class=xl63 colspan=2 width=174 style='mso-ignore:colspan;width:130pt'>CoinMarketCap
+    ID</td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>United States Dollar ($)</td>
+    <td>USD</td>
+    <td align=right>2781</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Albanian Lek (L)</td>
+    <td>ALL</td>
+    <td align=right>3526</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Algerian Dinar (د.ج)</td>
+    <td>DZD</td>
+    <td align=right>3537</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Argentine Peso ($)</td>
+    <td>ARS</td>
+    <td align=right>2821</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Armenian Dram (֏)</td>
+    <td>AMD</td>
+    <td align=right>3527</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Australian Dollar ($)</td>
+    <td>AUD</td>
+    <td align=right>2782</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Azerbaijani Manat (₼)</td>
+    <td>AZN</td>
+    <td align=right>3528</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Bahraini Dinar (.د.ب)</td>
+    <td>BHD</td>
+    <td align=right>3531</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Bangladeshi Taka (৳)</td>
+    <td>BDT</td>
+    <td align=right>3530</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Belarusian Ruble (Br)</td>
+    <td>BYN</td>
+    <td align=right>3533</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Bermudan Dollar ($)</td>
+    <td>BMD</td>
+    <td align=right>3532</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Bolivian Boliviano (Bs.)</td>
+    <td>BOB</td>
+    <td align=right>2832</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Bosnia-Herzegovina Convertible Mark (KM)</td>
+    <td>BAM</td>
+    <td align=right>3529</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Brazilian Real (R$)</td>
+    <td>BRL</td>
+    <td align=right>2783</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Bulgarian Lev (лв)</td>
+    <td>BGN</td>
+    <td align=right>2814</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Cambodian Riel (៛)</td>
+    <td>KHR</td>
+    <td align=right>3549</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Canadian Dollar ($)</td>
+    <td>CAD</td>
+    <td align=right>2784</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Chilean Peso ($)</td>
+    <td>CLP</td>
+    <td align=right>2786</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Chinese Yuan (¥)</td>
+    <td>CNY</td>
+    <td align=right>2787</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Colombian Peso ($)</td>
+    <td>COP</td>
+    <td align=right>2820</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Costa Rican Colón (₡)</td>
+    <td>CRC</td>
+    <td align=right>3534</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Croatian Kuna (kn)</td>
+    <td>HRK</td>
+    <td align=right>2815</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Cuban Peso ($)</td>
+    <td>CUP</td>
+    <td align=right>3535</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Czech Koruna (Kč)</td>
+    <td>CZK</td>
+    <td align=right>2788</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Danish Krone (kr)</td>
+    <td>DKK</td>
+    <td align=right>2789</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Dominican Peso ($)</td>
+    <td>DOP</td>
+    <td align=right>3536</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Egyptian Pound (£)</td>
+    <td>EGP</td>
+    <td align=right>3538</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Euro (€)</td>
+    <td>EUR</td>
+    <td align=right>2790</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Georgian Lari (₾)</td>
+    <td>GEL</td>
+    <td align=right>3539</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Ghanaian Cedi (₵)</td>
+    <td>GHS</td>
+    <td align=right>3540</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Guatemalan Quetzal (Q)</td>
+    <td>GTQ</td>
+    <td align=right>3541</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Honduran Lempira (L)</td>
+    <td>HNL</td>
+    <td align=right>3542</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Hong Kong Dollar ($)</td>
+    <td>HKD</td>
+    <td align=right>2792</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Hungarian Forint (Ft)</td>
+    <td>HUF</td>
+    <td align=right>2793</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Icelandic Króna (kr)</td>
+    <td>ISK</td>
+    <td align=right>2818</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Indian Rupee (₹)</td>
+    <td>INR</td>
+    <td align=right>2796</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Indonesian Rupiah (Rp)</td>
+    <td>IDR</td>
+    <td align=right>2794</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Iranian Rial (﷼)</td>
+    <td>IRR</td>
+    <td align=right>3544</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Iraqi Dinar (ع.د)</td>
+    <td>IQD</td>
+    <td align=right>3543</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Israeli New Shekel (₪)</td>
+    <td>ILS</td>
+    <td align=right>2795</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Jamaican Dollar ($)</td>
+    <td>JMD</td>
+    <td align=right>3545</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Japanese Yen (¥)</td>
+    <td>JPY</td>
+    <td align=right>2797</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Jordanian Dinar (د.ا)</td>
+    <td>JOD</td>
+    <td align=right>3546</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Kazakhstani Tenge (₸)</td>
+    <td>KZT</td>
+    <td align=right>3551</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Kenyan Shilling (Sh)</td>
+    <td>KES</td>
+    <td align=right>3547</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Kuwaiti Dinar (د.ك)</td>
+    <td>KWD</td>
+    <td align=right>3550</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Kyrgystani Som (с)</td>
+    <td>KGS</td>
+    <td align=right>3548</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Lebanese Pound (ل.ل)</td>
+    <td>LBP</td>
+    <td align=right>3552</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Macedonian Denar (ден)</td>
+    <td>MKD</td>
+    <td align=right>3556</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Malaysian Ringgit (RM)</td>
+    <td>MYR</td>
+    <td align=right>2800</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Mauritian Rupee (₨)</td>
+    <td>MUR</td>
+    <td align=right>2816</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Mexican Peso ($)</td>
+    <td>MXN</td>
+    <td align=right>2799</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Moldovan Leu (L)</td>
+    <td>MDL</td>
+    <td align=right>3555</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Mongolian Tugrik (₮)</td>
+    <td>MNT</td>
+    <td align=right>3558</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Moroccan Dirham (د.م.)</td>
+    <td>MAD</td>
+    <td align=right>3554</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Myanma Kyat (Ks)</td>
+    <td>MMK</td>
+    <td align=right>3557</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Namibian Dollar ($)</td>
+    <td>NAD</td>
+    <td align=right>3559</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Nepalese Rupee (₨)</td>
+    <td>NPR</td>
+    <td align=right>3561</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>New Taiwan Dollar (NT$)</td>
+    <td>TWD</td>
+    <td align=right>2811</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>New Zealand Dollar ($)</td>
+    <td>NZD</td>
+    <td align=right>2802</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Nicaraguan Córdoba (C$)</td>
+    <td>NIO</td>
+    <td align=right>3560</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Nigerian Naira (₦)</td>
+    <td>NGN</td>
+    <td align=right>2819</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Norwegian Krone (kr)</td>
+    <td>NOK</td>
+    <td align=right>2801</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Omani Rial (ر.ع.)</td>
+    <td>OMR</td>
+    <td align=right>3562</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Pakistani Rupee (₨)</td>
+    <td>PKR</td>
+    <td align=right>2804</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Panamanian Balboa (B/.)</td>
+    <td>PAB</td>
+    <td align=right>3563</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Peruvian Sol (S/.)</td>
+    <td>PEN</td>
+    <td align=right>2822</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Philippine Peso (₱)</td>
+    <td>PHP</td>
+    <td align=right>2803</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Polish Złoty (zł)</td>
+    <td>PLN</td>
+    <td align=right>2805</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Pound Sterling (£)</td>
+    <td>GBP</td>
+    <td align=right>2791</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Qatari Rial (ر.ق)</td>
+    <td>QAR</td>
+    <td align=right>3564</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Romanian Leu (lei)</td>
+    <td>RON</td>
+    <td align=right>2817</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Russian Ruble (₽)</td>
+    <td>RUB</td>
+    <td align=right>2806</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Saudi Riyal (ر.س)</td>
+    <td>SAR</td>
+    <td align=right>3566</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Serbian Dinar (дин.)</td>
+    <td>RSD</td>
+    <td align=right>3565</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Singapore Dollar (S$)</td>
+    <td>SGD</td>
+    <td align=right>2808</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>South African Rand (R)</td>
+    <td>ZAR</td>
+    <td align=right>2812</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>South Korean Won (₩)</td>
+    <td>KRW</td>
+    <td align=right>2798</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>South Sudanese Pound (£)</td>
+    <td>SSP</td>
+    <td align=right>3567</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Sovereign Bolivar (Bs.)</td>
+    <td>VES</td>
+    <td align=right>3573</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Sri Lankan Rupee (Rs)</td>
+    <td>LKR</td>
+    <td align=right>3553</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Swedish Krona ( kr)</td>
+    <td>SEK</td>
+    <td align=right>2807</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Swiss Franc (Fr)</td>
+    <td>CHF</td>
+    <td align=right>2785</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Thai Baht (฿)</td>
+    <td>THB</td>
+    <td align=right>2809</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Trinidad and Tobago Dollar ($)</td>
+    <td>TTD</td>
+    <td align=right>3569</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Tunisian Dinar (د.ت)</td>
+    <td>TND</td>
+    <td align=right>3568</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Turkish Lira (₺)</td>
+    <td>TRY</td>
+    <td align=right>2810</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Ugandan Shilling (Sh)</td>
+    <td>UGX</td>
+    <td align=right>3570</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Ukrainian Hryvnia (₴)</td>
+    <td>UAH</td>
+    <td align=right>2824</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>United Arab Emirates Dirham (د.إ)</td>
+    <td>AED</td>
+    <td align=right>2813</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Uruguayan Peso ($)</td>
+    <td>UYU</td>
+    <td align=right>3571</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Uzbekistan Som (so'm)</td>
+    <td>UZS</td>
+    <td align=right>3572</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Vietnamese Dong (₫)</td>
+    <td>VND</td>
+    <td align=right>2823</span></td>
+    <td></td>
+   </tr>
+  </table>
+
+
+
+    <p>Four precious metals:
+    </p>
+    <table border=0 cellpadding=0 cellspacing=0 width=404 style='border-collapse:
+   collapse;table-layout:fixed;width:302pt'>
+   <col width=143 style='mso-width-source:userset;mso-width-alt:4565;width:107pt'>
+   <col width=87 span=3 style='width:65pt'>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 class=xl63 width=143 style='height:16.0pt;width:107pt'>Precious
+    Metal</td>
+    <td class=xl63 width=87 style='width:65pt'>Currency Cod<span
+    style='display:none'>e</span></td>
+    <td class=xl63 colspan=2 width=174 style='mso-ignore:colspan;width:130pt'>CoinMarketCap
+    ID</td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Gold Troy Ounce</td>
+    <td>XAU</td>
+    <td align=right>3575</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Silver Troy Ounce</td>
+    <td>XAG</td>
+    <td align=right>3574</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Platinum Ounce</td>
+    <td>XPT</td>
+    <td align=right>3577</td>
+    <td></td>
+   </tr>
+   <tr height=21 style='height:16.0pt'>
+    <td height=21 style='height:16.0pt'>Palladium Ounce</td>
+    <td>XPD</td>
+    <td align=right>3576</span></td>
+    <td></td>
+   </tr>
+  </table>
+  <p>
+    <aside class="warning"><strong>Warning: </strong>Use CoinMarketCap IDs because not all cryptocurrency symbols are unique. Symbols can change with a cryptocurrency rebrand.</aside>       
+  </p>
+  <p>When a symbol is used with multiple matches, the API will always default to the cryptocurrency with the highest market cap. Also, if a cryptocurrency symbol matches a supported fiat currency the conversion parameter defaults to the fiat. The /map endpoints let you find the corresponding CoinMarketCap ID for a cryptocurrency or exchange. 
+  </p>
+  <h3>Bundling API Calls</h3>
+    <ul>
+      <li>Numerous endpoints support ID and currency conversion bundling. Therefore, you can pass multiple comma-separated values to an endpoint to convert or query several items at once. In the endpoint documentation, check the id, symbol, slug, and convert query parameter descriptions in the endpoint documentation to see if this is supported for an endpoint.
+      </li>
+      <li>Endpoints that support bundling return data as an object map instead of returning data as an array. Each key-value pair uses the identifier passed in as the key.
+      </li>
+    </ul>
+
+  <h1 id="exchange">Exchange</h1>
+  <p>API endpoints for cryptocurrency exchanges includes 7 endpoints:
+  </p>
+  <p>
+    <ul>
+      <li>/v1/exchange/map - CoinMarketCap ID map
+      </li>
+      <li>/v1/exchange/info - Metadata
+      </li>
+      <li>/v1/exchange/listings/latest - Latest listings
+      </li>
+      <li>/v1/exchange/listings/historical - Historical listings
+      </li>
+      <li>/v1/exchange/quotes/latest - Latest quotes
+      </li>
+      <li>/v1/exchange/quotes/historical - Historical quotes
+      </li>
+      <li>/v1/exchange/market-pairs/latest - Latest market pairs
+      </li>
+    </ul>
+  </p>
+  <h1 id="tools">Tools</h1>
+  <h2 id="price-conversion">Price Conversion</h2>
+  <h1 id="blockchain">Blockchain</h1>
+  <h2 id="statistics-latest">Statistics Latest</h2>
+  <h1 id="partners">Partners</h1>
+  <h2 id="fcas-listings-latest">FCAS Listings Latest</h2>
+  <h2 id="fcas-quotes-latest">FCAS Quotes Latest</h2>
+  <h1 id="key">Key</h1>
+  <h2 id="key-info">Key Info</h2>
+   <h1 id="version-history">Version History</h1>
+    <p>The CoinMarketCap API employs Semantic Versioning in the format major.minor.patch. According to this versioning, the current major version is accessed from the API request path as /v1/. Unbreaking minor and patch updates to the API are released regularly. These may include new data points, endpoints, and API plan features which are always introduced without breaking previous minor releases and patches. Therefore, new properties will become available in our existing /v1/ endpoints. However, any breaking change will be introduced under a new major version of the API, and legacy versions will be supported indefinitely unless otherwise stated.
+Subscribe to our API Newsletter to get email updates monthly on CoinMarketCap API enhancements.
+    </p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+</blockquote>
+
+<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+
+<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: meowmeowmeow</code></p>
+
+<aside class="notice">
+You must replace <code>meowmeowmeow</code> with your personal API key.
+</aside>
+<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all kittens.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/api/kittens</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_cats</td>
+<td>false</td>
+<td>If set to true, the result will also include cats.</td>
+</tr>
+<tr>
+<td>available</td>
+<td>true</td>
+<td>If set to false, the result will include kittens that have already been adopted.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a specific kitten.</p>
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
+  <span class="nt">-X</span> DELETE <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint deletes a specific kitten.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to delete</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

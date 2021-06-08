@@ -999,8 +999,90 @@
   <h2 id="ohlcv-historical">OHLCV Historical</h2>
   <p>The OHLCV Historical endpoint returns historical OHLCV (Open, High, Low, Close, and Volume) data in addition to the market cap for any cryptocurrency using time interval parameters. Currently, hourly and daily OHLCV periods are supported. However, at this time, volume is only supported with daily periods.
   </p>
+  <p><strong>Technical Notes</strong>
+    <ul>
+      <li>Only the date of the timestamp is used for daily OHLCV. Therefore, it's recommended that you send an ISO date format such as "2018-09-19" without time for this "time_period".
+      </li>
+      <li>For every "time_period" between your "time_start" (exclusive) and "time_end" (inclusive), one OHLCV quote will be returned.
+      </li>
+      <li>If a "time_start" is not given, the "time_period" is calculated in reverse from "time_end" using the "count" parameter, which defaults to 10 results.
+      </li>
+      <li>If "time_end" is not given, the endpoint defaults to the current time.
+      </li>
+      <li>If you don't require every "time_period" between your dates, you can adjust the frequency that "time_period" is sampled with the "interval" parameter. For example, with "time_period" set to "daily" you can set "interval" to "2d" to get the daily OHLCV for every other day. You could also set "interval" to "monthly" to get the first daily OHLCV for each month or set it to "yearly" to get the daily OHLCV value for the same date every year.
+      </li>
+    </ul>
+  </p>
+  <p><strong>Implementation Tips</strong>
+    <ul>
+      <li>If you query for a specific OHLCV date, your "time_start" should specify a timestamp of 1 interval prior because "time_start" is an exclusive time parameter (as opposed to "time_end", which is inclusive to the search). As an exclusive time parameter, when you pass a "time_start", the results will be returned for the next complete "time_period". For example, if you are querying for a daily OHLCV datapoint for 2018-11-30, your "time_start" should be one day prior, "2018-11-29".
+      </li>
+      <li>If you only specify a "count" parameter to return the latest OHLCV periods, your "count" should be 1 higher than the number of results you expect to receive. "Count" defines the number of "time_period" intervals queried, not the number of results to return. Also, "Count" includes the currently active time period, which is incomplete when working backward from the current time. So, the daily OHLCV with "count=1" refers to what has happened so far today.  Therefore, to get the last daily OHLCV value available (yesterday in this case), pass "count=2". If you want two days ago, pass "count=3".
+      </li>
+      <li>This endpoint supports requesting multiple cryptocurrencies in the same call. Please note, the API response will be wrapped in an additional object when requesting multiple cryptocurrencies from the same call.
+      </li>
+    </ul>
+  </p>
   <h2 id="ohlcv-latest">OHLCV Latest</h2>
+  <p>The OHLCV Latest endpoint returns the latest OHLCV (Open, High, Low, Close, Volume) market values for one or more cryptocurrencies for the current UTC day. Since the current UTC day is ongoing (still active), these values are updated often. You can get the final calculated OHLCV values for the last completed UTC day along with all historic days using /cryptocurrency/ohlcv/historical. (See OHLCV Historical -- Implementation Tips).
+  </p>
+  <p><strong>This endpoint is available on the following</strong> API plans:
+    <ul>
+      <li>Basic
+      </li>
+      <li>Hobbyist
+      </li>
+      <li>Startup
+      </li>
+      <li>Standard
+      </li>
+      <li>Professional
+      </li>
+      <li>Enterprise
+      </li>
+    </ul>
+  </p>
+  <p><strong>Cache / Update frequency: </strong>Every 5 minutes. Additional OHLCV intervals.
+  </p>
+  <p><strong>Plan credit use: </strong>1 call credit per 100 OHLCV values returned (rounded up), and 1 call credit per convert option beyond the first.  
+  </p>
+  <p><strong>CMC equivalent pages:  </strong>No equivalent pages. This data is only available via API.
+  </p>
+  <p><strong>Response Schema</strong>
+  </p>
+
+
   <h2 id="price-performance-stats">Price Performance Stats</h2>
+  <p>The Price Performance Stats endpoint returns price-performance statistics for one or more cryptocurrencies, including launch price ROI, an all-time high, and an all-time low. By default, the Price Performance Stats endpoint returns stats for an all_time period. UTC yesterday and several rolling time periods may be requested with the time_period parameter. Utilize the convert parameter to translate values into multiple fiats or cryptocurrencies with historical rates.
+  </p>
+  <p><strong>This endpoint is available on the following</strong> API plans:
+    <ul>
+      <li>Startup
+      </li>
+      <li>Standard
+      </li>
+      <li>Professional
+      </li>
+      <li>Enterprise
+      </li>
+    </ul>
+  </p>
+  <p>However, the following API plans do not include this endpoint:
+    <ul>
+      <li>Basic
+      </li>
+      <li>Hobbyist
+      </li>
+    </ul>
+  </p>
+  <p><strong>Cache / Update frequency: </strong>Every 60 Seconds.
+  </p>
+  <p><strong>Plan credit use: </strong>One call credit per 100 OHLCV values returned (rounded up), and one call credit per convert option beyond the first.  
+  </p>
+  <p><strong>CMC equivalent pages:  </strong>The statistics module displayed on cryptocurrency pages such as Bitcoin.
+  </p>
+  <p><strong>Note:  </strong>You can also use /cryptocurrency/ohlcv/historical for traditional OHLCV data at historical daily and hourly intervals. Additionally, you can use /v1/cryptocurrency/ohlcv/latest for OHLCV data for the current UTC day.
+  </p>
   <h2 id="quotes-h">Quotes Historical</h2>
   <h2 id="quotes-l">Quotes Latest</h2>
   <h1 id="global-metrics">Global Metrics</h1>

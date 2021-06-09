@@ -1015,13 +1015,63 @@
   </p>
   <p><strong>Implementation Tips</strong>
     <ul>
-      <li>If you query for a specific OHLCV date, your "time_start" should specify a timestamp of 1 interval prior because "time_start" is an exclusive time parameter (as opposed to "time_end", which is inclusive to the search). As an exclusive time parameter, when you pass a "time_start", the results will be returned for the next complete "time_period". For example, if you are querying for a daily OHLCV datapoint for 2018-11-30, your "time_start" should be one day prior, "2018-11-29".
+      <li>If you query for a specific OHLCV date, your "time_start" should specify a timestamp of one interval prior because "time_start" is an exclusive time parameter (as opposed to "time_end", which is inclusive to the search). As an exclusive time parameter, when you pass a "time_start", the results will be returned for the next complete "time_period". For example, if you are querying for a daily OHLCV datapoint for 2018-11-30, your "time_start" should be one day prior, "2018-11-29".
       </li>
       <li>If you only specify a "count" parameter to return the latest OHLCV periods, your "count" should be 1 higher than the number of results you expect to receive. "Count" defines the number of "time_period" intervals queried, not the number of results to return. Also, "Count" includes the currently active time period, which is incomplete when working backward from the current time. So, the daily OHLCV with "count=1" refers to what has happened so far today.  Therefore, to get the last daily OHLCV value available (yesterday in this case), pass "count=2". If you want two days ago, pass "count=3".
       </li>
       <li>This endpoint supports requesting multiple cryptocurrencies in the same call. Please note, the API response will be wrapped in an additional object when requesting multiple cryptocurrencies from the same call.
       </li>
     </ul>
+  </p>
+  <p><strong>Interval Options</strong>
+  </p>
+  <p>Two types of time interval formats can be used for "time_period" and "interval" parameters. If you pass the "time_period" parameter, the OHLCV Historical endpoint returns aggregate OHLCV data from the beginning to end of each interval period. You can also apply time intervals to the "interval" paramet to adjust how frequently "time_period" is sampled.
+  </p>
+  <p>The first type of time intervals are calendar year and time constants in UTC time such as:
+    <ul>
+      <li><strong>"hourly" </strong>- Hour intervals in UTC.
+      </li>
+      <li><strong>"daily" </strong>- Calendar day intervals for each UTC day. 
+      </li>
+      <li><strong>"weekly" </strong>- Calendar week intervals for each calendar week.
+      </li>
+      <li><strong>"monthly" </strong>- Calendar month intervals for each calendar month.
+      </li>
+      <li><strong>"yearly" </strong>- Calendar year intervals for each calendar year.
+      </li>
+    </ul>
+  </p>
+  <p>The second type of intervals are relative time intervals.
+    <ul>
+      <li><strong>"h": </strong>Returns the first quote available every "h" hours (3600 second intervals). Supported hour intervals are: "1h", "2h", "3h", "4h", "6h", and "12h".
+      </li>
+      <li><strong>"d: " </strong>Time periods that repeat every "d" days (86400 second intervals). Supported day intervals are: "1d", "2d", "3d", "7d", "14d", "15d", "30d", "60d", "90d", and "365d".
+      </li>
+      <li><strong>Note: </strong>"time_period" currently supports the "daily" and "hourly" options. However, the "interval" parameter supports all interval options.
+      </li>
+    </ul>
+  </p>
+  <p><strong>This endpoint is available on the following</strong> API plans:
+    <ul>
+      <li>Basic
+      </li>
+      <li>Hobbyist
+      </li>
+      <li>Startup
+      </li>
+      <li>Standard
+      </li>
+      <li>Professional
+      </li>
+      <li>Enterprise
+      </li>
+    </ul>
+  </p>
+  <p><strong>Cache / Update frequency: </strong>Latest Daily OHLCV record is available from about 5 to 10 minutes after each midnight UTC. The latest hourly OHLCV record is available about 5 minutes after each UTC hour.
+  </p>
+  <p><strong>Plan credit use: </strong>One call credit per 100 OHLCV data points returned (rounded up), and one call credit per convert option beyond the first.
+  </p>
+  <p><strong>CMC equivalent pages:  </strong>Historical cryptocurrency data pages include:  coinmarketcap.com/currencies/bitcoin/historical-data/.
   </p>
   <h2 id="ohlcv-latest">OHLCV Latest</h2>
   <p>The OHLCV Latest endpoint returns the latest OHLCV (Open, High, Low, Close, Volume) market values for one or more cryptocurrencies for the current UTC day. Since the current UTC day is ongoing (still active), these values are updated often. You can get the final calculated OHLCV values for the last completed UTC day along with all historic days using /cryptocurrency/ohlcv/historical. (See OHLCV Historical -- Implementation Tips).
@@ -1084,6 +1134,36 @@
   <p><strong>Note:  </strong>You can also use /cryptocurrency/ohlcv/historical for traditional OHLCV data at historical daily and hourly intervals. Additionally, you can use /v1/cryptocurrency/ohlcv/latest for OHLCV data for the current UTC day.
   </p>
   <h2 id="quotes-h">Quotes Historical</h2>
+  <p>The Quotes Historical endpoint returns an interval of historic market quotes for any cryptocurrency based on time and interval parameters.
+  </p>
+  <p><strong>Technical Notes</strong>
+    <ul>
+      <li>It returns a historical quote for every "interval" period between your "time_start" and "time_end".
+      </li>
+      <li>If a "time_start" is not given, the "interval" will be applied in reverse from "time_end".
+      </li>
+      <li>If "time_end" is not supplied, it defaults to the current time.
+      </li>
+      <li>For each "interval" period, the endpoint will return the closest historical quote in time to the requested time.
+      </li>
+      <li>If no historical quotes are available in a given "interval" period, the request will be skipped.
+      </li>
+    </ul>
+  </p>
+  <p><strong>Implementation Tips</strong>
+    <ul>
+      <li>IWant to retrieve the last quote of each UTC day? Don't use "interval=daily" because that returns the first quote. Instead, use "interval=24h" to repeat a specific timestamp search every 24 hours. So, the parameter "time_start=2019-01-04T23:59:00.000Z"  queries for the last record of each UTC day.
+      </li>
+      <li>This endpoint supports requesting multiple cryptocurrencies in the same call. Please note the API response will be wrapped in an additional object in this case.
+      </li>
+    </ul>
+  </p>
+  <p><strong>Interval Options</strong>
+  </p>
+  <p>Two types of time interval formats can be used for the "interval".
+  </p>
+  <p>The first type includes calendar year and time constants in UTC time:
+  </p>
   <h2 id="quotes-l">Quotes Latest</h2>
   <h1 id="global-metrics">Global Metrics</h1>
   <h2 id="quotes-historical">Quotes Historical</h2>
